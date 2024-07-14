@@ -97,3 +97,5 @@ print(rating)
 
 
 // cannot not mix an INT and DOUBLE as DOUBLEs are such prescise numbers
+
+
