@@ -120,9 +120,7 @@ enum TransportOption {
     case plane, heli, bike, car, scooter
     
 }
-
-let transport = TransportOption.plane
-
+let transport: TransportOption = TransportOption.plane
 if transport == .plane || transport == .heli {
     print("Flyyyy")
 } else if transport == .bike {

@@ -14,4 +14,12 @@
 
 
 
-// Checkpoint 4
+// Checkpoint 5
+// using sorted() filter() map()
+
+let luckyNumbers = [7, 4, 38, 21, 16, 15, 12, 33, 31, 49]
+luckyNumbers 
+    .filter { $0 % 2 != 0} // filter even nums
+    .sorted() // sorts
+    .map { "\($0) is a lucky number!"} // maps them to srring
+    .forEach { print($0) } // prints

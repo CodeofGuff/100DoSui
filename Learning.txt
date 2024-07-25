@@ -12,6 +12,7 @@ You can represent a simple true or false state using a Boolean, which can be fli
 String interpolation lets us place constants and variables into our strings in a streamlined, efficient way.
 
 
+
 REVIEW
 Arrays let us store lots of values in one place, then read them out using integer indices. 
 Arrays must always be specialized so they contain one specific type, and they have helpful functionality such as count, append(), and contains().
@@ -47,3 +48,17 @@ You can control how those parameter names are used externally, either by using a
 If you think there are certain parameter values you’ll use repeatedly, you can make them have a default value so your function takes less code to write and does the smart thing by default.
 Functions can return a value if you want, but if you want to return multiple pieces of data from a function you should use a tuple. These hold several named elements, but it’s limited in a way a dictionary is not – you list each element specifically, along with its type.
 Functions can throw errors: you create an enum defining the errors you want to happen, throw those errors inside the function as needed, then use do, try, and catch to handle them at the call site.
+
+
+
+REVIEW. 
+You can copy functions in Swift, and they work the same as the original except they lose their external parameter names.
+All functions have types, just like other data types. This includes the parameters they receive along with their return type, which might be Void – also known as “nothing”.
+You can create closures directly by assigning to a constant or variable.
+Closures that accept parameters or return a value must declare this inside their braces, followed by the keyword in.
+Functions are able to accept other functions as parameters. They must declare up front exactly what data those functions must use, and Swift will ensure the rules are followed.
+In this situation, instead of passing a dedicated function you can also pass a closure – you can make one directly. Swift allows both approaches to work.
+When passing a closure as a function parameter, you don’t need to explicitly write out the types inside your closure if Swift can figure it out automatically. The same is true for the return value – if Swift can figure it out, you don’t need to specify it.
+If one or more of a function’s final parameters are functions, you can use trailing closure syntax.
+You can also use shorthand parameter names such as $0 and $1, but I would recommend doing that only under some conditions.
+You can make your own functions that accept functions as parameters, although in practice it’s much more important to know how to use them than how to create them.
