@@ -76,3 +76,14 @@ Initializers are a bit like specialized functions, and Swift generates one for a
 You can create your own custom initializers if you want, but you must always make sure all properties in your struct have a value by the time the initializer finishes, and before you call any other methods.
 We can use access to mark any properties and methods as being available or unavailable externally, as needed.
 It’s possible to attach a property or methods directly to a struct, so you can use them without creating an instance of the struct.
+
+
+REVIEW.
+Classes have lots of things in common with structs, including the ability to have properties and methods, but there are five key differences between classes and structs.
+First, classes can inherit from other classes, which means they get access to the properties and methods of their parent class. You can optionally override methods in child classes if you want, or mark a class as being final to stop others subclassing it.
+Second, Swift doesn’t generate a memberwise initializer for classes, so you need to do it yourself. If a subclass has its own initializer, it must always call the parent class’s initializer at some point.
+Third, if you create a class instance then take copies of it, all those copies point back to the same instance. This means changing some data in one of the copies changes them all.
+Fourth, classes can have deinitializers that run when the last copy of one instance is destroyed.
+Finally, variable properties inside class instances can be changed regardless of whether the instance itself was created as variable.
+
+
