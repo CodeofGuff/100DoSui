@@ -53,3 +53,25 @@ class Cat: Animal {
 class Corgi: Dog { override func speak() { print("Yap yap yap!") } }
 class Tuxedo: Cat { init() { super.init(isTame: true) }; override func speak() { print("Puurraaahhhhh") } }
 
+
+
+// Checkpoint 8
+
+protocol Building {
+    var rooms: Int { get }
+    var cost: Int { get }
+    var agent: String { get }
+    func salesSum()
+}
+
+
+struct House: Building {
+    var rooms = 4
+    var cost = 400_500
+    var agent = "Bob Smith"
+    func salesSum() {
+        print("The house for sale has \(rooms), at a price of \(cost) dollars listed by \(agent).")
+    }
+}
+
+//struct Office: Building {}
