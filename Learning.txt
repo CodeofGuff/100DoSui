@@ -86,8 +86,20 @@ Third, if you create a class instance then take copies of it, all those copies p
 Fourth, classes can have deinitializers that run when the last copy of one instance is destroyed.
 Finally, variable properties inside class instances can be changed regardless of whether the instance itself was created as variable.
 
+
 REVIEW.
 Protocols are like contracts for code: we specify the functions and methods that we required, and conforming types must implement them.
 Opaque return types let us hide some information in our code. That might mean we want to retain flexibility to change in the future, but also means we don’t need to write out gigantic return types.
 Extensions let us add functionality to our own custom types, or to Swift’s built-in types. This might mean adding a method, but we can also add computed properties.
 Protocol extensions let us add functionality to many types all at once – we can add properties and methods to a protocol, and all conforming types get access to them.
+
+
+REVIEW.
+Optionals let us represent the absence of data, which means we’re able to say “this integer has no value” – that’s different from a fixed number such as 0.
+As a result, everything that isn’t optional definitely has a value inside, even if that’s just an empty string.
+Unwrapping an optional is the process of looking inside a box to see what it contains: if there’s a value inside it’s sent back for use, otherwise there will be nil inside.
+We can use if let to run some code if the optional has a value, or guard let to run some code if the optional doesn’t have a value – but with guard we must always exit the function afterwards.
+The nil coalescing operator, ??, unwraps and returns an optional’s value, or uses a default value instead.
+Optional chaining lets us read an optional inside another optional with a convenient syntax.
+If a function might throw errors, you can convert it into an optional using try? – you’ll either get back the function’s return value, or nil if an error is thrown.
+
