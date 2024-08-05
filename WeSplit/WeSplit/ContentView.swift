@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var tipPercentage = 20
     @FocusState private var amountIsFocused: Bool
     
-    let tipPercentages = [10, 15, 20, 25, 30, 0]
+    let tipPercentages = [0, 15, 20, 25, 30]
     var totalPerPerson: Double {
         let peopleCount = Double(numberOfPeople + 2)
         let tipSelection = Double(tipPercentage)
@@ -22,6 +22,26 @@ struct ContentView: View {
         let grandTotal = checkAmount + tipValue
         let amountPerPerson = grandTotal / peopleCount
         return amountPerPerson
+    }
+    
+    var tipSplit: Double {
+        let tipSelection = Double(tipPercentage)
+        let peopleCount = Double(numberOfPeople + 2)
+        let tip = checkAmount / 100 * tipSelection
+        let total = tip / peopleCount
+        return total
+    }
+
+    var tip: Double {
+        let tipSelection = Double(tipPercentage)
+        let tipValue = checkAmount / 100 * tipSelection
+        return tipValue
+    }
+    var total: Double {
+        let tipSelection = Double(tipPercentage)
+        let tipValue = checkAmount / 100 * tipSelection
+        let grandTotal = checkAmount + tipValue
+        return grandTotal
     }
     
     var body: some View {
@@ -44,10 +64,16 @@ struct ContentView: View {
                             Text($0, format: .percent)
                         }
                     }
-                    .pickerStyle(.segmented)
                 }
-                Section {
+                    .pickerStyle(.segmented)
+                Section("Tip per person"){
+                    Text(tipSplit, format: .currency(code:  Locale.current.currency?.identifier ?? "USD"))
+                }
+                Section("Amount Per Person (Including tip):") {
                     Text(totalPerPerson, format: .currency(code:  Locale.current.currency?.identifier ?? "USD"))
+                }
+                Section("Bill total, including tip") {
+                    Text(total, format: .currency(code:  Locale.current.currency?.identifier ?? "USD"))
                 }
             }
             .navigationTitle("WeTip")
