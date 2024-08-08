@@ -15,6 +15,9 @@
 
 
 
+
+
+
 // Guass effect
 
 struct ContentView: View {
@@ -62,4 +65,78 @@ struct ContentView: View {
     var body: some View {
         AngularGradient(colors: [.blue, .black, .red, .yellow, .purple, .purple, .purple, .red, .blue], center: .center)
             }
+}
+
+
+
+
+
+
+// Buttons
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Button("Button 1") {}
+                .buttonStyle(.bordered)
+        
+            Button("Button 2") {}
+                .buttonStyle(.borderedProminent)
+            
+            Button("Button 3", role: .destructive) {}
+                .buttonStyle(.bordered)
+                .tint(.indigo)
+            
+            Button("Button 4", role: .destructive) {}
+                .buttonStyle(.borderedProminent)
+            
+        }
+    }
+    
+    func executeDelete() {
+        print("Now deleting...")
+    }
+}
+
+
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Button {
+                print("Button was tapped!")
+            } label: {
+                Text("Tap me!")
+                    .padding()
+                    .foregroundStyle(.white)
+                    .background(.red)
+            }
+            
+        }
+    }
+}
+
+
+
+
+
+
+
+
+// Showing Alerts
+struct ContentView: View {
+    @State private var showingAlert = false
+    
+    
+    var body: some View {
+        VStack {
+            Button("Show Alert") {
+                showingAlert = true
+            }
+            .alert("ARE YOU SURE?", isPresented: $showingAlert) {
+                Button("YES!", role: .destructive)  { }
+                Button("NO!", role: .cancel) { }
+            } message: {
+                Text("This delete's everything forever")
+            }
+        }
+    }
 }
