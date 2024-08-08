@@ -1,14 +1,13 @@
-// Day15 was mainly review
+// Day15  through 19 
 
-// Day16
+// Project 1 - WeTip
+
+
+
+//Mainly review from Day 15-16: 
+
 // Explanation of what the next days are going to look like
 // learn the basics of UI design, how to let users enter values and select from options, and how to track program state.
-
-
-
-
-
-
 struct ContentView: View {
     let students = ["Harry", "Hermione", "Ron"]
     @State private var selectedStudent = "Harry"
