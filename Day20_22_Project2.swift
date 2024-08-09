@@ -16,8 +16,6 @@
 
 
 
-
-
 // Guass effect
 
 struct ContentView: View {
@@ -37,7 +35,6 @@ struct ContentView: View {
         .ignoresSafeArea() // most important three words
     }
 }
-
 
 
 
@@ -113,7 +110,6 @@ struct ContentView: View {
         }
     }
 }
-
 
 
 
